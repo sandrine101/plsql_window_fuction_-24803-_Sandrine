@@ -1,5 +1,7 @@
 # plsql_window_fuction_-24803-_Sandrine
 # Library Management System
+This project is a simple Library Management System built using Oracle SQL. It handles the basic operations of a library, such as tracking books, borrowers, and loan transactions.
+
 - Create the Books table
 CREATE TABLE Books (
     Book_ID NUMBER PRIMARY KEY,
@@ -52,10 +54,17 @@ UPDATE Books
 SET Available = 'No'
 WHERE Book_ID = 1;
 <img width="1310" height="614" alt="4" src="https://github.com/user-attachments/assets/89fa8e2e-a4de-4af7-8c82-2c40a1405dc9" />
--- Delete a borrower from the Borrowers table
+-- Delete a borrower from the Borrowers table.
 DELETE FROM Borrowers
 WHERE Borrower_ID = 2;
+
 <img width="1301" height="583" alt="5" src="https://github.com/user-attachments/assets/0e3a0f00-3cae-43ef-8e98-83aed20a5a8f" />
+JOIN.
+-- Join Borrowers and Loans with Books to get loan details
+SELECT b.Name, bk.Title, l.Loan_Date, l.Return_Date
+FROM Borrowers b
+JOIN Loans l ON b.Borrower_ID = l.Borrower_ID
+JOIN Books bk ON l.Book_ID = bk.Book_ID;
 <img width="1296" height="634" alt="6" src="https://github.com/user-attachments/assets/2841ea26-201a-4b4e-b29b-b63a51828089" />
 
 
